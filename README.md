@@ -26,5 +26,10 @@ To spell using the default NATO phonetic dictionary, use
 The following spells a text file via UNIX-like piping using the default NATO phonetic dictionary
     
     cat some_file.txt | python3 spell.py
+    
+## Creating custom dictionaries
+
+You can create your own custom dictionary in .json format. See `NATO.json` or `Morse.json` for 
+details on how to write one. 
 
 
