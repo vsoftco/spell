@@ -3,11 +3,11 @@
 # spell.py
 #
 # Spells text using phonetic alphabet(s)
-# Use python3 spell.py -h for help
+# Type python3 spell.py -h for help
 #
 # MIT License
 #
-# Copyright (c) 2013 - 2018 Vlad Gheorghiu (vgheorgh@gmail.com)
+# Copyright (c) 2018 Vlad Gheorghiu (vgheorgh@gmail.com)
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -30,15 +30,6 @@
 import argparse
 import json
 import sys
-
-# Default dictionary
-dictionary = {'A': "Alpha", 'B': "Bravo", 'C': "Charlie", 'D': "Delta",
-              'E': "Echo", 'F': "Foxtrot", 'G': "Golf", 'H': "Hotel",
-              'I': "India", 'J': "Juliet", 'K': "Kilo", 'L': "Lima",
-              'M': "Mike", 'N': "November", 'O': "Oscar", 'P': "Papa",
-              'Q': "Quebec", 'R': "Romeo", 'S': "Sierra", 'T': "Tango",
-              'U': "Uniform", 'V': "Victor", 'W': "Whiskey", 'X': "X-ray",
-              'Y': "Yankee", 'Z': "Zulu"}
 
 
 # Spells a string using a specified dictionary
@@ -69,12 +60,21 @@ if __name__ == "__main__":
         except IOError:
             print('Cannot open the dictionary "{dict}"'.format(dict=args.dict))
             exit(-1)
+    else:
+        # By default we use the NATO phonetic dictionary
+        dictionary = {'A': "Alpha", 'B': "Bravo", 'C': "Charlie", 'D': "Delta",
+                      'E': "Echo", 'F': "Foxtrot", 'G': "Golf", 'H': "Hotel",
+                      'I': "India", 'J': "Juliet", 'K': "Kilo", 'L': "Lima",
+                      'M': "Mike", 'N': "November", 'O': "Oscar", 'P': "Papa",
+                      'Q': "Quebec", 'R': "Romeo", 'S': "Sierra", 'T': "Tango",
+                      'U': "Uniform", 'V': "Victor", 'W': "Whiskey", 'X': "X-ray",
+                      'Y': "Yankee", 'Z': "Zulu"}
 
     # We have text passed from the command line
     if args.text is not None:
         spell(args.text, dictionary)
-    # We have text taken from the standard input
     else:
+        # We have text taken from the standard input
         while True:
             line = sys.stdin.readline()
             if line == '':
