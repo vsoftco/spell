@@ -1,10 +1,11 @@
 # spell
 Spells text using phonetic alphabet(s)
 
-#Usage:
+# Usage:
+
     `python3 spell.py [-h] [--dict DICT] [--text TEXT]`
 
-#Optional arguments:
+# Optional arguments:
 
   `-h, --help`   show this help message and exit
   
@@ -12,7 +13,8 @@ Spells text using phonetic alphabet(s)
   
   `--text TEXT`  text to be spelled, if omitted spells from the standard input
 
-#Example:
+# Example:
+
 To spell the text "Hello" using Morse code, use
 
     `python3 spell.py --dict="Morse.json" --text="Hello"`
