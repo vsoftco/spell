@@ -3,7 +3,7 @@ Spells text using phonetic alphabet(s)
 
 ## Usage:
 
-    `python3 spell.py [-h] [--dict DICT] [--text TEXT]`
+    python3 spell.py [-h] [--dict DICT] [--text TEXT]
 
 ## Optional arguments:
 
