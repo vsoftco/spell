@@ -1,4 +1,4 @@
-# spell
+# spell.py
 Spells text using phonetic alphabet(s)
 
 ## Usage:

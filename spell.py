@@ -36,7 +36,7 @@ import sys
 def spell(string, dic):
     for char in string:
         if char.upper() in dic:
-            print(('{key} > {value}'.format(key=char, value=dic[char.upper()])).rstrip())
+            print(('{key} | {value}'.format(key=char, value=dic[char.upper()])).rstrip())
         else:
             print(char.rstrip())
 
