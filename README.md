@@ -21,7 +21,7 @@ To spell the text "Hello" using Morse code, use
 
 To spell using the default NATO phonetic dictionary, use
 
-    python3 spell.py --text="Test"
+    python3 spell.py --text="Hello"
 
 The following spells a text file via UNIX-like piping using the default NATO phonetic dictionary
     
