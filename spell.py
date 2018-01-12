@@ -36,13 +36,13 @@ import sys
 def spell(string, dic):
     for char in string:
         if char in dic:
-            print(('{key} | {value}'.format(key=char, value=dic[char])).rstrip())
+            print('{key} | {value}'.format(key=char, value=dic[char]))
         elif char.upper() in dic:
-            print(('{key} | {value}'.format(key=char, value=dic[char.upper()])).rstrip())
+            print('{key} | {value}'.format(key=char, value=dic[char.upper()]))
         elif char.lower() in dic:
-            print(('{key} | {value}'.format(key=char, value=dic[char.lower()])).rstrip())
+            print('{key} | {value}'.format(key=char, value=dic[char.lower()]))
         else:
-            print(char.rstrip())
+            print(char)
 
 
 if __name__ == "__main__":
@@ -51,7 +51,7 @@ if __name__ == "__main__":
     parser.add_argument('--text', help='text to be spelled, if omitted spells from the standard input')
     args = parser.parse_args()
 
-    # We have a custom dictionary
+    # Custom dictionary
     if args.dict is not None:
         try:
             with open(args.dict, 'rt') as f:
@@ -64,7 +64,7 @@ if __name__ == "__main__":
             print('Cannot open the dictionary "{dict}"'.format(dict=args.dict))
             exit(-1)
     else:
-        # By default we use the NATO phonetic dictionary
+        # Use the NATO phonetic dictionary by default
         dictionary = {'A': "Alpha", 'B': "Bravo", 'C': "Charlie", 'D': "Delta",
                       'E': "Echo", 'F': "Foxtrot", 'G': "Golf", 'H': "Hotel",
                       'I': "India", 'J': "Juliet", 'K': "Kilo", 'L': "Lima",
@@ -73,13 +73,16 @@ if __name__ == "__main__":
                       'U': "Uniform", 'V': "Victor", 'W': "Whiskey", 'X': "X-ray",
                       'Y': "Yankee", 'Z': "Zulu"}
 
-    # We have text passed from the command line
+    # Text passed from the command line
     if args.text is not None:
         spell(args.text, dictionary)
     else:
         # We have text taken from the standard input
         while True:
             line = sys.stdin.readline()
+            # Stops on CTRL+D (UNIX) or CTRL+Z (Windows)
             if line == '':
                 break
-            spell(line, dictionary)
+            # Strips the newline from the end of each line
+            spell(line.rstrip(), dictionary)
+            print("----- newline -----")
