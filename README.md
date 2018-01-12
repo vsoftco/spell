@@ -1,11 +1,11 @@
 # spell.py
 Spells text using phonetic alphabet(s)
 
-## Usage:
+### Usage:
 
     python3 spell.py [-h] [--dict DICT] [--text TEXT]
 
-## Optional arguments:
+### Optional arguments:
 
     -h, --help   show this help message and exit
   
@@ -13,7 +13,7 @@ Spells text using phonetic alphabet(s)
   
     --text TEXT  text to be spelled, if omitted spells from the standard input
 
-## Examples:
+### Examples:
 
 To spell the text "Hello" using Morse code, use
 
@@ -27,7 +27,7 @@ The following spells a text file via UNIX-like piping using the default NATO pho
     
     cat some_file.txt | python3 spell.py
     
-## Creating custom dictionaries
+### Creating custom dictionaries
 
 You can create your own custom dictionary in .json format. See `NATO.json` or `Morse.json` for 
 details on how to write one. 
