@@ -35,8 +35,12 @@ import sys
 # Spells a string using a specified dictionary
 def spell(string, dic):
     for char in string:
-        if char.upper() in dic:
+        if char in dic:
+            print(('{key} | {value}'.format(key=char, value=dic[char])).rstrip())
+        elif char.upper() in dic:
             print(('{key} | {value}'.format(key=char, value=dic[char.upper()])).rstrip())
+        elif char.lower() in dic:
+            print(('{key} | {value}'.format(key=char, value=dic[char.lower()])).rstrip())
         else:
             print(char.rstrip())
 
