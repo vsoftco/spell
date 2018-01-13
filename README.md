@@ -27,11 +27,11 @@ To spell directly from the console using the default NATO phonetic dictionary, u
 
     python3 spell.py
 
-then start typing. You can even combine `spell` via UNIX-like piping
+then start typing. `spell` accepts to be part of a UNIX-like pipe, e.g.
     
     cat some_file.txt | python3 spell.py
 
-to spell whole files.
+to spell the content of `some_file.txt`.
     
 ### Creating custom dictionaries
 
