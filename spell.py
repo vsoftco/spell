@@ -57,11 +57,13 @@ if __name__ == "__main__":
             with open(args.dict, 'rt') as f:
                 try:
                     dictionary = json.load(f)
-                except json.decoder.JSONDecodeError:
-                    print('Cannot parse the dictionary "{dict}"'.format(dict=args.dict))
+                except json.decoder.JSONDecodeError as json_exception:
+                    print("Cannot parse the dictionary '{dict}'".format(dict=args.dict))
+                    print(json_exception)
                     exit(-1)
-        except IOError:
-            print('Cannot open the dictionary "{dict}"'.format(dict=args.dict))
+        except IOError as io_exception:
+            print("Cannot open the dictionary '{dict}'".format(dict=args.dict))
+            print(io_exception)
             exit(-1)
     else:
         # Use the NATO phonetic dictionary by default
