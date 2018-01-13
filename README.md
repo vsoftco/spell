@@ -23,9 +23,15 @@ To spell using the default NATO phonetic dictionary, use
 
     python3 spell.py --text="Hello"
 
-The following spells a text file via UNIX-like piping using the default NATO phonetic dictionary
+To spell directly from the console using the default NATO phonetic dictionary, use
+
+    python3 spell.py
+
+then start typing. You can even combine `spell` via UNIX-like piping
     
     cat some_file.txt | python3 spell.py
+
+to spell whole files.
     
 ### Creating custom dictionaries
 
