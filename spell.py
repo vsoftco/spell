@@ -60,11 +60,11 @@ if __name__ == "__main__":
                 except json.decoder.JSONDecodeError as json_exception:
                     print("Cannot parse the dictionary '{dict}'".format(dict=args.dict))
                     print(json_exception)
-                    exit(-1)
+                    sys.exit(-1)
         except IOError as io_exception:
             print("Cannot open the dictionary '{dict}'".format(dict=args.dict))
             print(io_exception)
-            exit(-1)
+            sys.exit(-1)
     else:
         # Use the NATO phonetic dictionary by default
         dictionary = {'A': "Alpha", 'B': "Bravo", 'C': "Charlie", 'D': "Delta",
