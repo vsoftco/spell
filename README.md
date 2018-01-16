@@ -35,7 +35,7 @@ to spell the content of `some_file.txt`.
     
 ### Creating custom dictionaries
 
-You can create your own custom dictionary in .json format. See `NATO.json` or `Morse.json` for 
+You can create your own custom dictionary in JSON format. See `NATO.json` or `Morse.json` for 
 details on how to write one. 
 
 
