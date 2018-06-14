@@ -73,7 +73,9 @@ if __name__ == "__main__":
                       'M': "Mike", 'N': "November", 'O': "Oscar", 'P': "Papa",
                       'Q': "Quebec", 'R': "Romeo", 'S': "Sierra", 'T': "Tango",
                       'U': "Uniform", 'V': "Victor", 'W': "Whiskey", 'X': "X-ray",
-                      'Y': "Yankee", 'Z': "Zulu"}
+                      'Y': "Yankee", 'Z': "Zulu", '1': "One", '2': "Two",
+                      '3': "Three", '4': "Four", '5': "Five", '6': "Six",
+                      '7': "Seven", '8': "Eight", '9': "Nine", '0': "Zero"}
 
     # Text passed from the command line
     if args.text is not None:
