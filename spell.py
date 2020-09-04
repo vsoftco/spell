@@ -2,7 +2,7 @@
 #
 # spell.py
 #
-# Spells text using phonetic alphabet(s)
+# Spells text using (phonetic) alphabet(s)
 # Type python3 spell.py -h for help
 #
 # MIT License
