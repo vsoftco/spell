@@ -1,5 +1,5 @@
 # spell.py
-Spells text using phonetic alphabet(s)
+Spells text using (phonetic) alphabet(s)
 
 ### Usage:
 
@@ -27,7 +27,7 @@ To spell directly from the console using the default NATO phonetic dictionary, u
 
     python3 spell.py
 
-then start typing. `spell` accepts to be part of a UNIX-like pipe, e.g.
+then start typing. `spell.py` accepts UNIX-like piping, e.g. type
     
     cat some_file.txt | python3 spell.py
 
@@ -35,7 +35,5 @@ to spell the content of `some_file.txt`.
     
 ### Creating custom dictionaries
 
-You can create your own custom dictionary in JSON format. See `NATO.json` or `Morse.json` for 
-details on how to write one. 
-
-
+You can create your own custom dictionary in JSON format, see `NATO.json` or 
+`Morse.json` for details.
