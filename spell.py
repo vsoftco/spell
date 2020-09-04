@@ -41,6 +41,8 @@ def spell(string, dic):
             print('{key} | {value}'.format(key=char, value=dic[char.upper()]))
         elif char.lower() in dic:
             print('{key} | {value}'.format(key=char, value=dic[char.lower()]))
+        elif char == '\n':
+            print("----- newline -----")
         else:
             print(char)
 
@@ -87,6 +89,4 @@ if __name__ == "__main__":
             # Stops on CTRL+D (UNIX) or CTRL+Z (Windows)
             if line == '':
                 break
-            # Strips the newline from the end of each line
-            spell(line.rstrip(), dictionary)
-            print("----- newline -----")
+            spell(line, dictionary)
