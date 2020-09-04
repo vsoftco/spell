@@ -1,5 +1,6 @@
 # spell.py
-Spells text using (phonetic) alphabet(s)
+Spells text using various alphabets.
+By default, uses the NATO phonetic alphabet.
 
 ### Usage:
 
@@ -15,19 +16,21 @@ Spells text using (phonetic) alphabet(s)
 
 ### Examples:
 
+To spell using the default NATO phonetic alphabet, use
+
+    python3 spell.py --text="Hello"
+
 To spell the text "Hello" using Morse code, use
 
     python3 spell.py --dict="Morse.json" --text="Hello"
 
-To spell using the default NATO phonetic dictionary, use
-
-    python3 spell.py --text="Hello"
-
-To spell directly from the console using the default NATO phonetic dictionary, use
+To spell from the console using the default NATO phonetic alphabet, use
 
     python3 spell.py
 
-then start typing. `spell.py` accepts UNIX-like piping, e.g. type
+then start typing (end with CTRL+D on UNIX-like systems).
+
+`spell.py` accepts UNIX-like piping, e.g. type
     
     cat some_file.txt | python3 spell.py
 
