@@ -9,7 +9,7 @@
 #
 # MIT License
 #
-# Copyright (c) 2018 - 2020 Vlad Gheorghiu.
+# Copyright (c) 2018 - 2021 Vlad Gheorghiu.
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -51,8 +51,8 @@ def spell(string, dic):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Spells text using phonetic alphabet(s)')
-    parser.add_argument('--dict', help='custom dictionary (in JSON format)')
-    parser.add_argument('--text', help='text to be spelled, if omitted spells from the standard input')
+    parser.add_argument('-d', '--dict', help='custom dictionary (in JSON format)')
+    parser.add_argument('text', nargs='?', help='text to be spelled, if omitted spells from the standard input')
     args = parser.parse_args()
 
     # Custom dictionary

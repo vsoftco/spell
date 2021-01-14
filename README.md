@@ -2,27 +2,28 @@
 Spells text using various alphabets.
 By default, uses the NATO phonetic alphabet.
 
-### Usage:
+### usage:
 
-    python3 spell.py [-h] [--dict DICT] [--text TEXT]
+    python3 spell.py [-h] [-d DICTIONARY] [text]
 
-### Optional arguments:
+### positional arguments:
 
-    -h, --help   show this help message and exit
+    text                  text to be spelled, if omitted spells from the standard input
+
+### optional arguments:
+
+    -h, --help            show this help message and exit 
+    -d DICT, --dict DICT  custom dictionary (in JSON format)
   
-    --dict DICT  custom dictionary (in JSON format)
-  
-    --text TEXT  text to be spelled, if omitted spells from the standard input
-
 ### Examples:
 
 To spell using the default NATO phonetic alphabet, use
 
-    python3 spell.py --text="Hello"
+    python3 spell.py Hello 
 
 To spell the text "Hello" using Morse code, use
 
-    python3 spell.py --dict="Morse.json" --text="Hello"
+    python3 spell.py --dict="Morse.json" Hello
 
 To spell from the console using the default NATO phonetic alphabet, use
 
@@ -30,7 +31,7 @@ To spell from the console using the default NATO phonetic alphabet, use
 
 then start typing (end with CTRL+D on UNIX-like systems).
 
-`spell.py` accepts UNIX-like piping, e.g. type
+`spell.py` accepts UNIX-like piping, e.g., type
     
     cat some_file.txt | python3 spell.py
 
