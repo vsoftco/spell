@@ -23,9 +23,9 @@ To spell using the default NATO phonetic alphabet, use
 
 To spell the text "Hello" using Morse code, use
 
-    python3 spell.py --dict="Morse.json" Hello
+    python3 spell.py -d Morse.json Hello
 
-To spell from the console using the default NATO phonetic alphabet, use
+To spell from the standard input using the default NATO phonetic alphabet, use
 
     python3 spell.py
 
@@ -33,7 +33,7 @@ then start typing (end with CTRL+D on UNIX-like systems).
 
 `spell.py` accepts UNIX-like piping, e.g., type
     
-    cat some_file.txt | python3 spell.py
+    cat some_file.txt | python3 spell.py # or python3 spell.py < some_file.txt
 
 to spell the content of `some_file.txt`.
     
