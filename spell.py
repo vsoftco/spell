@@ -1,15 +1,15 @@
 #!/usr/bin/env python3
-#
+
 # spell.py
 #
 # Spells text using various alphabets. By default, uses the NATO phonetic
 # alphabet.
 #
-# Type python3 spell.py -h for help
+# Type python3 spell.py --help for help
+
+# Copyright (c) 2018 - 2021 Vlad Gheorghiu. All rights reserved.
 #
 # MIT License
-#
-# Copyright (c) 2018 - 2021 Vlad Gheorghiu.
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal

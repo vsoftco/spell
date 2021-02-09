@@ -104,8 +104,6 @@ ENV/
 .idea
 bin/
 include/
-lib/
-spell/
 pip-selfcheck.json
 pyvenv.cfg
 

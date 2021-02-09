@@ -15,7 +15,7 @@ By default, uses the NATO phonetic alphabet.
     -h, --help            show this help message and exit 
     -d DICT, --dict DICT  custom dictionary (in JSON format)
   
-### Examples:
+### Examples
 
 To spell using the default NATO phonetic alphabet, use
 
