@@ -7,7 +7,7 @@
 #
 # Type python3 spell.py --help for help
 
-# Copyright (c) 2018 - 2021 Vlad Gheorghiu. All rights reserved.
+# Copyright (c) 2018 - 2022 Vlad Gheorghiu. All rights reserved.
 #
 # MIT License
 #
