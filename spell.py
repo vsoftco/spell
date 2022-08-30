@@ -86,9 +86,12 @@ if __name__ == "__main__":
         spell(args.text, dictionary)
     else:
         # We have text taken from the standard input
-        while True:
-            line = sys.stdin.readline()
-            # Stops on CTRL+D (UNIX) or CTRL+Z (Windows)
-            if line == '':
-                break
-            spell(line, dictionary)
+        try:
+            while True:
+                line = sys.stdin.readline()
+                # Stops on CTRL+D (UNIX) or CTRL+Z (Windows)
+                if line == '':
+                    break
+                spell(line, dictionary)
+        except KeyboardInterrupt:
+            sys.exit()
