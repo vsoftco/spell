@@ -7,7 +7,7 @@
 #
 # Type python3 spell.py --help for help
 
-# Copyright (c) 2018 - 2022 Vlad Gheorghiu. All rights reserved.
+# Copyright (c) 2018 - 2024 Vlad Gheorghiu. All rights reserved.
 #
 # MIT License
 #
@@ -38,27 +38,33 @@ import sys
 def spell(string, dic):
     for char in string:
         if char in dic:
-            print('{key} | {value}'.format(key=char, value=dic[char]))
+            print("{key} | {value}".format(key=char, value=dic[char]))
         elif char.upper() in dic:
-            print('{key} | {value}'.format(key=char, value=dic[char.upper()]))
+            print("{key} | {value}".format(key=char, value=dic[char.upper()]))
         elif char.lower() in dic:
-            print('{key} | {value}'.format(key=char, value=dic[char.lower()]))
-        elif char == '\n':
+            print("{key} | {value}".format(key=char, value=dic[char.lower()]))
+        elif char == "\n":
             print("----- newline -----")
         else:
             print(char)
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description='Spells text using phonetic alphabet(s)')
-    parser.add_argument('-d', '--dict', help='custom dictionary (in JSON format)')
-    parser.add_argument('text', nargs='?', help='text to be spelled, if omitted spells from the standard input')
+    parser = argparse.ArgumentParser(
+        description="Spells text using phonetic alphabet(s)"
+    )
+    parser.add_argument("-d", "--dict", help="custom dictionary (in JSON format)")
+    parser.add_argument(
+        "text",
+        nargs="?",
+        help="text to be spelled, if omitted spells from the standard input",
+    )
     args = parser.parse_args()
 
     # Custom dictionary
     if args.dict is not None:
         try:
-            with open(args.dict, 'rt') as f:
+            with open(args.dict, "rt") as f:
                 try:
                     dictionary = json.load(f)
                 except json.decoder.JSONDecodeError as json_exception:
@@ -71,15 +77,44 @@ if __name__ == "__main__":
             sys.exit(-1)
     else:
         # Use the NATO phonetic dictionary by default
-        dictionary = {'a': "Alpha", 'b': "Bravo", 'c': "Charlie", 'd': "Delta",
-                      'e': "Echo", 'f': "Foxtrot", 'g': "Golf", 'h': "Hotel",
-                      'i': "India", 'j': "Juliet", 'k': "Kilo", 'l': "Lima",
-                      'm': "Mike", 'n': "November", 'o': "Oscar", 'p': "Papa",
-                      'q': "Quebec", 'r': "Romeo", 's': "Sierra", 't': "Tango",
-                      'u': "Uniform", 'v': "Victor", 'w': "Whiskey", 'x': "X-ray",
-                      'y': "Yankee", 'z': "Zulu", '1': "One", '2': "Two",
-                      '3': "Three", '4': "Four", '5': "Five", '6': "Six",
-                      '7': "Seven", '8': "Eight", '9': "Nine", '0': "Zero"}
+        dictionary = {
+            "a": "Alpha",
+            "b": "Bravo",
+            "c": "Charlie",
+            "d": "Delta",
+            "e": "Echo",
+            "f": "Foxtrot",
+            "g": "Golf",
+            "h": "Hotel",
+            "i": "India",
+            "j": "Juliet",
+            "k": "Kilo",
+            "l": "Lima",
+            "m": "Mike",
+            "n": "November",
+            "o": "Oscar",
+            "p": "Papa",
+            "q": "Quebec",
+            "r": "Romeo",
+            "s": "Sierra",
+            "t": "Tango",
+            "u": "Uniform",
+            "v": "Victor",
+            "w": "Whiskey",
+            "x": "X-ray",
+            "y": "Yankee",
+            "z": "Zulu",
+            "1": "One",
+            "2": "Two",
+            "3": "Three",
+            "4": "Four",
+            "5": "Five",
+            "6": "Six",
+            "7": "Seven",
+            "8": "Eight",
+            "9": "Nine",
+            "0": "Zero",
+        }
 
     # Text passed from the command line
     if args.text is not None:
@@ -90,7 +125,7 @@ if __name__ == "__main__":
             while True:
                 line = sys.stdin.readline()
                 # Stops on CTRL+D (UNIX) or CTRL+Z (Windows)
-                if line == '':
+                if line == "":
                     break
                 spell(line, dictionary)
         except KeyboardInterrupt:
