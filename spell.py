@@ -5,7 +5,9 @@
 # Spells text using various alphabets. By default, uses the NATO phonetic
 # alphabet.
 #
-# Type python3 spell.py --help for help
+# Execute
+#     python3 spell.py --help
+# for help
 
 # Copyright (c) 2018 - 2024 Vlad Gheorghiu. All rights reserved.
 #
@@ -35,18 +37,28 @@ import sys
 
 
 # Spells a string using a specified dictionary
-def spell(string, dic):
+def spell(string, dict):
     for char in string:
-        if char in dic:
-            print("{key} | {value}".format(key=char, value=dic[char]))
-        elif char.upper() in dic:
-            print("{key} | {value}".format(key=char, value=dic[char.upper()]))
-        elif char.lower() in dic:
-            print("{key} | {value}".format(key=char, value=dic[char.lower()]))
+        if char in dict:
+            print("{key} | {value}".format(key=char, value=dict[char]))
+        elif char.upper() in dict:
+            print("{key} | {value}".format(key=char, value=dict[char.upper()]))
+        elif char.lower() in dict:
+            print("{key} | {value}".format(key=char, value=dict[char.lower()]))
         elif char == "\n":
             print("----- newline -----")
         else:
             print(char)
+
+
+# Loads a custom dictionary
+def load_dict(path):
+    try:
+        with open(path, "rt") as f:
+            return json.load(f)
+    except (IOError, json.JSONDecodeError) as e:
+        print(f"Error loading dictionary '{path}': {e}")
+        sys.exit(-1)
 
 
 if __name__ == "__main__":
@@ -61,23 +73,10 @@ if __name__ == "__main__":
     )
     args = parser.parse_args()
 
-    # Custom dictionary
-    if args.dict is not None:
-        try:
-            with open(args.dict, "rt") as f:
-                try:
-                    dictionary = json.load(f)
-                except json.decoder.JSONDecodeError as json_exception:
-                    print("Cannot parse the dictionary '{dict}'".format(dict=args.dict))
-                    print(json_exception)
-                    sys.exit(-1)
-        except IOError as io_exception:
-            print("Cannot open the dictionary '{dict}'".format(dict=args.dict))
-            print(io_exception)
-            sys.exit(-1)
-    else:
-        # Use the NATO phonetic dictionary by default
-        dictionary = {
+    dictionary = (
+        load_dict(args.dict)
+        if args.dict
+        else {
             "a": "Alpha",
             "b": "Bravo",
             "c": "Charlie",
@@ -115,18 +114,13 @@ if __name__ == "__main__":
             "9": "Nine",
             "0": "Zero",
         }
+    )
 
-    # Text passed from the command line
-    if args.text is not None:
-        spell(args.text, dictionary)
-    else:
-        # We have text taken from the standard input
-        try:
-            while True:
-                line = sys.stdin.readline()
-                # Stops on CTRL+D (UNIX) or CTRL+Z (Windows)
-                if line == "":
-                    break
-                spell(line, dictionary)
-        except KeyboardInterrupt:
-            sys.exit()
+    # Text from the command line, or from the standard input
+    # If from standard input, stops on CTRL+D (UNIX) or CTRL+Z (Windows)
+    text = args.text or sys.stdin
+    try:
+        for line in text:
+            spell(line, dictionary)
+    except (KeyboardInterrupt, EOFError):
+        sys.exit()
